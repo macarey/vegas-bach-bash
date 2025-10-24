@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import './globals.css'
-import { SlotMachineOpening } from '@/components/SlotMachineOpening'
+import { CinematicOpening } from '@/components/CinematicOpening'
 import { LaserEffects, DiscoBall, PartyLights, NeonGrid } from '@/components/PartyEffects'
 import { NeonText } from '@/components/VegasEffects'
 import { CelebrationButton } from '@/components/Confetti'
@@ -51,9 +51,9 @@ NOTES:
 
   return (
     <>
-      {/* Slot Machine Opening Animation */}
+      {/* Cinematic Dice Opening Animation */}
       {!showMainContent && (
-        <SlotMachineOpening onComplete={() => setShowMainContent(true)} />
+        <CinematicOpening onComplete={() => setShowMainContent(true)} />
       )}
 
       {/* Main Content - Only shows after cinematic opening */}
