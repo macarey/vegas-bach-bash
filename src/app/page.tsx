@@ -62,11 +62,27 @@ NOTES:
           {/* Interactive Particles Background */}
           <Particles
             className="absolute inset-0"
-            quantity={80}
-            ease={80}
+            quantity={150}
+            ease={60}
             color="#00ffff"
-            size={0.5}
-            staticity={50}
+            size={1.2}
+            staticity={30}
+          />
+          <Particles
+            className="absolute inset-0"
+            quantity={100}
+            ease={70}
+            color="#ff00ff"
+            size={0.8}
+            staticity={40}
+          />
+          <Particles
+            className="absolute inset-0"
+            quantity={80}
+            ease={50}
+            color="#ffff00"
+            size={1.0}
+            staticity={25}
           />
           
           {/* Hero Section */}
