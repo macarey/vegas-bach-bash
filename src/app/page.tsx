@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import './globals.css'
-import { CinematicOpening } from '@/components/CinematicOpening'
+import { SlotMachineOpening } from '@/components/SlotMachineOpening'
 import { LaserEffects, DiscoBall, PartyLights, NeonGrid } from '@/components/PartyEffects'
 import { NeonText } from '@/components/VegasEffects'
 import { CelebrationButton } from '@/components/Confetti'
@@ -12,7 +12,7 @@ export default function Home() {
   const [showMainContent, setShowMainContent] = useState(false)
 
   const copyItinerary = async () => {
-    const itinerary = `Vegas Bach Bash - October 24–26, 2024
+    const itinerary = `Mark & Kristen's Bachelor/Bachelorette Weekend - October 24–26, 2024
 
 ARRIVAL: Thursday, Oct 24 at 6:15 PM
 DEPARTURE: Sunday, Oct 26 at 12:00 PM
@@ -20,24 +20,25 @@ HOTEL: The Venetian Resort
 DRESS CODE: Vegas chic
 
 FRIDAY — Arrival & Dinner
-• Arrive in Las Vegas — 6:15 PM
-• Check in at The Venetian
-• Group dinner (TBD)
-• Optional: drinks / bar hop / gambling
+• 6:15 PM – Land in Vegas
+• 7:30 PM – Check in at The Venetian
+• 8:30 PM – Group dinner (Rosa Mexicana)
+• 10:30 PM – Drinks, bar hop, gambling
 
 SATURDAY — Party Day
-• Girls: Brunch (TBD)
-• Guys: Casual breakfast + gambling
-• Pool Party at The Venetian (afternoon)
-• The Chainsmokers at XS (night)
+• 11:00 AM – Girls: Brunch (Chica)
+• 11:00 AM – Guys: Sleep in, breakfast and gambling
+• 1:00–5:00 PM – Pool at The Venetian
+• 8:30 PM – Pregame at the suite
+• 9:30 PM – Bus then Chainsmokers at XS
 
 SUNDAY — Departure
-• Pack & check out
-• Depart: 12:00 PM
+• 11:00 AM – Pack and check out
+• 12:00 PM – Depart for airport
 
 NOTES:
 • Mixed-group weekend
-• Friday dinner and girls' brunch are TBD; updates via group chat`
+• All times are approximate; updates via group chat.`
 
     try {
       await navigator.clipboard.writeText(itinerary)
@@ -50,9 +51,9 @@ NOTES:
 
   return (
     <>
-      {/* Cinematic Opening Animation */}
+      {/* Slot Machine Opening Animation */}
       {!showMainContent && (
-        <CinematicOpening onComplete={() => setShowMainContent(true)} />
+        <SlotMachineOpening onComplete={() => setShowMainContent(true)} />
       )}
 
       {/* Main Content - Only shows after cinematic opening */}
@@ -69,7 +70,7 @@ NOTES:
             <div className="max-w-4xl mx-auto text-center">
               <NeonText>
                 <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 text-balance drop-shadow-2xl">
-                  🎰 VEGAS BACH BASH 🎰
+                  🎰 MARK & KRISTEN'S BACHELOR/BACHELORETTE WEEKEND 🎰
                 </h1>
               </NeonText>
               <NeonText>
@@ -141,19 +142,19 @@ NOTES:
             <ul className="space-y-4 text-gray-200 text-lg">
               <li className="flex items-start">
                 <span className="text-red-400 mr-4 text-2xl" aria-hidden="true">✈️</span>
-                <span>Arrive in Las Vegas — 6:15 PM</span>
+                <span>6:15 PM – Land in Vegas</span>
               </li>
               <li className="flex items-start">
                 <span className="text-red-400 mr-4 text-2xl" aria-hidden="true">🏨</span>
-                <span>Check in at The Venetian</span>
+                <span>7:30 PM – Check in at The Venetian</span>
               </li>
               <li className="flex items-start">
                 <span className="text-red-400 mr-4 text-2xl" aria-hidden="true">🍽️</span>
-                <span>Group dinner (TBD)</span>
+                <span>8:30 PM – Group dinner (Rosa Mexicana)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-red-400 mr-4 text-2xl" aria-hidden="true">🍸</span>
-                <span>Optional: drinks / bar hop / gambling</span>
+                <span>10:30 PM – Drinks, bar hop, gambling</span>
               </li>
             </ul>
           </div>
@@ -166,19 +167,23 @@ NOTES:
             <ul className="space-y-4 text-gray-200 text-lg">
               <li className="flex items-start">
                 <span className="text-purple-400 mr-4 text-2xl" aria-hidden="true">👩</span>
-                <span>Girls: Brunch (TBD)</span>
+                <span>11:00 AM – Girls: Brunch (Chica)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-purple-400 mr-4 text-2xl" aria-hidden="true">👨</span>
-                <span>Guys: Casual breakfast + gambling</span>
+                <span>11:00 AM – Guys: Sleep in, breakfast and gambling</span>
               </li>
               <li className="flex items-start">
                 <span className="text-purple-400 mr-4 text-2xl" aria-hidden="true">🏊</span>
-                <span>Pool Party at The Venetian (afternoon)</span>
+                <span>1:00–5:00 PM – Pool at The Venetian</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-purple-400 mr-4 text-2xl" aria-hidden="true">🍸</span>
+                <span>8:30 PM – Pregame at the suite</span>
               </li>
               <li className="flex items-start">
                 <span className="text-purple-400 mr-4 text-2xl" aria-hidden="true">🎵</span>
-                <span>The Chainsmokers at XS (night)</span>
+                <span>9:30 PM – Bus then Chainsmokers at XS</span>
               </li>
             </ul>
           </div>
@@ -191,11 +196,11 @@ NOTES:
             <ul className="space-y-4 text-gray-200 text-lg">
               <li className="flex items-start">
                 <span className="text-blue-400 mr-4 text-2xl" aria-hidden="true">📦</span>
-                <span>Pack & check out</span>
+                <span>11:00 AM – Pack and check out</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-400 mr-4 text-2xl" aria-hidden="true">✈️</span>
-                <span>Depart: 12:00 PM</span>
+                <span>12:00 PM – Depart for airport</span>
               </li>
             </ul>
           </div>
@@ -216,7 +221,7 @@ NOTES:
               </li>
               <li className="flex items-start">
                 <span className="text-yellow-400 mr-4 text-2xl" aria-hidden="true">📱</span>
-                <span>Friday dinner and girls' brunch are TBD; updates via group chat.</span>
+                <span>All times are approximate; updates via group chat.</span>
               </li>
             </ul>
           </div>
@@ -229,7 +234,7 @@ NOTES:
           <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
             <NeonText>
               <p className="text-2xl font-bold text-white mb-4">
-                🎰 Vegas Bach Bash 🎰
+                🎰 Mark & Kristen's Bachelor/Bachelorette Weekend 🎰
               </p>
             </NeonText>
             <p className="text-lg text-gray-300 mb-4">October 24–26, 2024</p>

@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Vegas Bach Bash — Oct 24–26 at The Venetian',
-  description: 'A quick, clean itinerary for our Vegas bachelor/bachelorette weekend.',
+  title: "Mark & Kristen's Bachelor/Bachelorette Weekend — Oct 24–26 at The Venetian",
+  description: 'A quick, clean itinerary for Mark & Kristen\'s Vegas bachelor/bachelorette weekend.',
   openGraph: {
-    title: 'Vegas Bach Bash — Oct 24–26 at The Venetian',
-    description: 'A quick, clean itinerary for our Vegas bachelor/bachelorette weekend.',
+    title: "Mark & Kristen's Bachelor/Bachelorette Weekend — Oct 24–26 at The Venetian",
+    description: 'A quick, clean itinerary for Mark & Kristen\'s Vegas bachelor/bachelorette weekend.',
     type: 'website',
   },
 }
