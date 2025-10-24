@@ -55,6 +55,76 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .silk-reveal {
+    animation: silkReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .silk-float {
+    animation: silkFloat 3s ease-in-out infinite;
+  }
+
+  .silk-pulse {
+    animation: silkPulse 2.5s ease-in-out infinite;
+  }
+
+  .silk-glow {
+    animation: silkGlow 2s ease-in-out infinite;
+  }
+
+  .luxury-gradient {
+    background: linear-gradient(135deg, #8B0000 0%, #CD7F32 50%, #DAA520 100%);
+  }
+
+  .rose-gold-text {
+    background: linear-gradient(45deg, #CD7F32, #DAA520, #CD7F32);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes silkReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes silkFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes silkPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+@keyframes silkGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(205, 127, 50, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(205, 127, 50, 0.6), 0 0 60px rgba(205, 127, 50, 0.4);
+  }
 }
 
 @keyframes vegas-pulse {
