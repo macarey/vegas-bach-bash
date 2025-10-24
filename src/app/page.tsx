@@ -5,6 +5,7 @@ import './globals.css'
 import { CinematicOpening } from '@/components/CinematicOpening'
 import { NeonText } from '@/components/VegasEffects'
 import { CelebrationButton } from '@/components/Confetti'
+import { Particles } from '@/components/Particles'
 
 export default function Home() {
   const [copied, setCopied] = useState(false)
@@ -58,6 +59,15 @@ NOTES:
       {/* Main Content - Only shows after cinematic opening */}
       {showMainContent && (
         <main className="min-h-screen bg-black relative overflow-hidden">
+          {/* Interactive Particles Background */}
+          <Particles
+            className="absolute inset-0"
+            quantity={80}
+            ease={80}
+            color="#00ffff"
+            size={0.5}
+            staticity={50}
+          />
           
           {/* Hero Section */}
           <section className="px-6 py-12 md:py-20 animate-fade-in relative z-10">
