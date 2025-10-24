@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import './globals.css'
 import { CinematicOpening } from '@/components/CinematicOpening'
-import { VegasLights, NeonText, FloatingElements } from '@/components/VegasEffects'
+import { LaserEffects, DiscoBall, PartyLights, NeonGrid } from '@/components/PartyEffects'
+import { NeonText } from '@/components/VegasEffects'
 import { CelebrationButton } from '@/components/Confetti'
 
 export default function Home() {
@@ -57,9 +58,11 @@ NOTES:
       {/* Main Content - Only shows after cinematic opening */}
       {showMainContent && (
         <main className="min-h-screen bg-black relative overflow-hidden">
-          {/* Vegas Effects */}
-          <VegasLights />
-          <FloatingElements />
+          {/* Party Effects */}
+          <LaserEffects />
+          <DiscoBall />
+          <PartyLights />
+          <NeonGrid />
           
           {/* Hero Section */}
           <section className="px-6 py-12 md:py-20 animate-fade-in relative z-10">
