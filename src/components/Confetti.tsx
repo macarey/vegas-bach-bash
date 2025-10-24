@@ -41,33 +41,51 @@ export const Confetti = ({ trigger }: { trigger: boolean }) => {
 
     setConfetti(newConfetti)
 
+    let animationId: number
+
     const animate = () => {
-      setConfetti(prev => 
-        prev.map(piece => ({
+      setConfetti(prev => {
+        const updated = prev.map(piece => ({
           ...piece,
           x: piece.x + piece.velocity.x,
           y: piece.y + piece.velocity.y,
           rotation: piece.rotation + 8,
-          life: piece.life - 0.008,
+          life: piece.life - 0.005,
           velocity: {
-            x: piece.velocity.x * 0.98,
-            y: piece.velocity.y + 0.15
+            x: piece.velocity.x * 0.99,
+            y: piece.velocity.y + 0.2
           }
         })).filter(piece => 
           piece.life > 0 && 
-          piece.y < (typeof window !== 'undefined' ? window.innerHeight + 100 : 800)
+          piece.y < (typeof window !== 'undefined' ? window.innerHeight + 200 : 1000)
         )
-      )
+
+        // Continue animation if there are still pieces
+        if (updated.length > 0) {
+          animationId = requestAnimationFrame(animate)
+        } else {
+          setConfetti([])
+        }
+
+        return updated
+      })
     }
 
-    const interval = setInterval(animate, 16)
+    // Start the animation
+    animationId = requestAnimationFrame(animate)
+
+    // Cleanup timeout as backup
     const timeout = setTimeout(() => {
-      clearInterval(interval)
+      if (animationId) {
+        cancelAnimationFrame(animationId)
+      }
       setConfetti([])
-    }, 4000)
+    }, 6000)
 
     return () => {
-      clearInterval(interval)
+      if (animationId) {
+        cancelAnimationFrame(animationId)
+      }
       clearTimeout(timeout)
     }
   }, [trigger])
