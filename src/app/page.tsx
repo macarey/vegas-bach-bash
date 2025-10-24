@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import './globals.css'
 import { CinematicOpening } from '@/components/CinematicOpening'
-import { LuxuryEffects, DiamondSparkles, SilkText } from '@/components/LuxuryEffects'
 import { NeonText } from '@/components/VegasEffects'
 import { CelebrationButton } from '@/components/Confetti'
 
@@ -58,79 +57,64 @@ NOTES:
 
       {/* Main Content - Only shows after cinematic opening */}
       {showMainContent && (
-        <main className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-          {/* Luxury Effects */}
-          <LuxuryEffects />
-          <DiamondSparkles />
+        <main className="min-h-screen bg-black relative overflow-hidden">
           
           {/* Hero Section */}
-          <section className="px-6 py-12 md:py-20 relative z-10">
+          <section className="px-6 py-12 md:py-20 animate-fade-in relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <SilkText>
-                <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 text-balance drop-shadow-2xl rose-gold-text">
+              <NeonText>
+                <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 text-balance drop-shadow-2xl">
                   🎰 MARK & KRISTEN'S BACHELOR/BACHELORETTE WEEKEND 🎰
                 </h1>
-              </SilkText>
-              <SilkText className="mt-6">
-                <p className="text-2xl md:text-3xl text-rose-300 mb-6 font-medium silk-pulse">
+              </NeonText>
+              <NeonText>
+                <p className="text-2xl md:text-3xl text-cyan-400 mb-6 font-medium animate-pulse">
                   October 24–26 • The Venetian Resort
                 </p>
-              </SilkText>
-              <SilkText className="mt-4">
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-                  Your elegant guide to the weekend of a lifetime. 🌹✨
-                </p>
-              </SilkText>
+              </NeonText>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                Your quick link for the weekend plan. 🎲🎊
+              </p>
               
-              <SilkText className="mt-8">
-                <div className="flex justify-center mb-8">
-                  <CelebrationButton onClick={copyItinerary}>
-                    <button className="luxury-gradient hover:opacity-90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-500 transform hover:scale-105 shadow-lg silk-glow">
-                      {copied ? '✓ Copied!' : '📋 Copy Itinerary'}
-                    </button>
-                  </CelebrationButton>
-                </div>
-              </SilkText>
+              <div className="flex justify-center mb-8">
+                <CelebrationButton onClick={copyItinerary}>
+                  <button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50">
+                    {copied ? '✓ Copied!' : '📋 Copy Itinerary'}
+                  </button>
+                </CelebrationButton>
+              </div>
             </div>
           </section>
 
       {/* Key Details */}
-      <section className="px-6 py-8 relative z-10" aria-labelledby="key-details">
+      <section className="px-6 py-8 animate-slide-up relative z-10" aria-labelledby="key-details">
         <div className="max-w-4xl mx-auto">
           <h2 id="key-details" className="sr-only">Key Details</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <SilkText>
-              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-2 border-rose-400/50 rounded-xl p-6 hover:border-rose-300 transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-rose-400/25 silk-glow">
-                <h3 className="text-rose-300 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
-                  ✈️ Arrival
-                </h3>
-                <p className="text-white text-xl font-semibold">Thursday, Oct 24 at 6:15 PM</p>
-              </div>
-            </SilkText>
-            <SilkText className="mt-2">
-              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-2 border-amber-400/50 rounded-xl p-6 hover:border-amber-300 transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-amber-400/25 silk-glow">
-                <h3 className="text-amber-300 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
-                  🚁 Departure
-                </h3>
-                <p className="text-white text-xl font-semibold">Sunday, Oct 26 at 12:00 PM</p>
-              </div>
-            </SilkText>
-            <SilkText className="mt-4">
-              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-2 border-yellow-400/50 rounded-xl p-6 hover:border-yellow-300 transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-yellow-400/25 silk-glow">
-                <h3 className="text-yellow-300 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
-                  🏨 Hotel
-                </h3>
-                <p className="text-white text-xl font-semibold">The Venetian Resort</p>
-              </div>
-            </SilkText>
-            <SilkText className="mt-6">
-              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-2 border-pink-400/50 rounded-xl p-6 hover:border-pink-300 transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-pink-400/25 silk-glow">
-                <h3 className="text-pink-300 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
-                  👗 Dress Code
-                </h3>
-                <p className="text-white text-xl font-semibold">Vegas chic</p>
-              </div>
-            </SilkText>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-cyan-500/50 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
+              <h3 className="text-cyan-400 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
+                ✈️ Arrival
+              </h3>
+              <p className="text-white text-xl font-semibold">Thursday, Oct 24 at 6:15 PM</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-purple-500/50 rounded-xl p-6 hover:border-purple-400 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/25">
+              <h3 className="text-purple-400 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
+                🚁 Departure
+              </h3>
+              <p className="text-white text-xl font-semibold">Sunday, Oct 26 at 12:00 PM</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-yellow-500/50 rounded-xl p-6 hover:border-yellow-400 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-500/25">
+              <h3 className="text-yellow-400 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
+                🏨 Hotel
+              </h3>
+              <p className="text-white text-xl font-semibold">The Venetian Resort</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-pink-500/50 rounded-xl p-6 hover:border-pink-400 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-pink-500/25">
+              <h3 className="text-pink-400 font-bold text-lg uppercase tracking-wide mb-3 flex items-center">
+                👗 Dress Code
+              </h3>
+              <p className="text-white text-xl font-semibold">Vegas chic</p>
+            </div>
           </div>
         </div>
       </section>
