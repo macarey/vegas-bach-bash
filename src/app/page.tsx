@@ -4,7 +4,6 @@ import { useState } from 'react'
 import './globals.css'
 import { CinematicOpening } from '@/components/CinematicOpening'
 import { NeonText } from '@/components/VegasEffects'
-import { CelebrationButton } from '@/components/Confetti'
 import { Particles } from '@/components/Particles'
 
 export default function Home() {
@@ -103,11 +102,12 @@ NOTES:
               </p>
               
               <div className="flex justify-center mb-8">
-                <CelebrationButton onClick={copyItinerary}>
-                  <button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50">
-                    {copied ? '✓ Copied!' : '📋 Copy Itinerary'}
-                  </button>
-                </CelebrationButton>
+                <button 
+                  onClick={copyItinerary}
+                  className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50"
+                >
+                  {copied ? '✓ Copied!' : '📋 Copy Itinerary'}
+                </button>
               </div>
             </div>
           </section>
