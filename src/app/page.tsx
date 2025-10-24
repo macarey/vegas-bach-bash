@@ -2,15 +2,13 @@
 
 import { useState } from 'react'
 import './globals.css'
-import { RollingDice } from '@/components/Dice'
-import { CardDeck } from '@/components/Cards'
-import { SlotMachine } from '@/components/SlotMachine'
+import { CinematicOpening } from '@/components/CinematicOpening'
 import { VegasLights, NeonText, FloatingElements } from '@/components/VegasEffects'
 import { CelebrationButton } from '@/components/Confetti'
 
 export default function Home() {
   const [copied, setCopied] = useState(false)
-  const [showGames, setShowGames] = useState(false)
+  const [showMainContent, setShowMainContent] = useState(false)
 
   const copyItinerary = async () => {
     const itinerary = `Vegas Bach Bash - October 24–26, 2024
@@ -50,67 +48,45 @@ NOTES:
   }
 
   return (
-    <main className="min-h-screen bg-black relative overflow-hidden">
-      {/* Vegas Effects */}
-      <VegasLights />
-      <FloatingElements />
-      
-      {/* Hero Section */}
-      <section className="px-6 py-12 md:py-20 animate-fade-in relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <NeonText>
-            <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 text-balance drop-shadow-2xl">
-              🎰 VEGAS BACH BASH 🎰
-            </h1>
-          </NeonText>
-          <NeonText>
-            <p className="text-2xl md:text-3xl text-cyan-400 mb-6 font-medium animate-pulse">
-              October 24–26 • The Venetian Resort
-            </p>
-          </NeonText>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            Your quick link for the weekend plan. 🎲🎊
-          </p>
+    <>
+      {/* Cinematic Opening Animation */}
+      {!showMainContent && (
+        <CinematicOpening onComplete={() => setShowMainContent(true)} />
+      )}
+
+      {/* Main Content - Only shows after cinematic opening */}
+      {showMainContent && (
+        <main className="min-h-screen bg-black relative overflow-hidden">
+          {/* Vegas Effects */}
+          <VegasLights />
+          <FloatingElements />
           
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-8">
-            <CelebrationButton onClick={copyItinerary}>
-              <button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50">
-                {copied ? '✓ Copied!' : '📋 Copy Itinerary'}
-              </button>
-            </CelebrationButton>
-            
-            <button 
-              onClick={() => setShowGames(!showGames)}
-              className="bg-gradient-to-r from-yellow-500 to-red-500 hover:from-yellow-400 hover:to-red-400 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/50"
-            >
-              {showGames ? '🎯 Hide Games' : '🎮 Vegas Games'}
-            </button>
-          </div>
-
-          {/* Vegas Games Section */}
-          {showGames && (
-            <div className="mt-12 space-y-8 animate-slide-up">
-              <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/30">
-                <h3 className="text-2xl font-bold text-white mb-6 text-center">🎲 Roll the Dice!</h3>
-                <div className="flex justify-center">
-                  <RollingDice />
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 backdrop-blur-sm rounded-2xl p-8 border border-red-500/30">
-                <h3 className="text-2xl font-bold text-white mb-6 text-center">🃏 Lucky Cards</h3>
-                <div className="flex justify-center">
-                  <CardDeck />
-                </div>
-              </div>
-
-              <div className="flex justify-center">
-                <SlotMachine />
+          {/* Hero Section */}
+          <section className="px-6 py-12 md:py-20 animate-fade-in relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <NeonText>
+                <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 text-balance drop-shadow-2xl">
+                  🎰 VEGAS BACH BASH 🎰
+                </h1>
+              </NeonText>
+              <NeonText>
+                <p className="text-2xl md:text-3xl text-cyan-400 mb-6 font-medium animate-pulse">
+                  October 24–26 • The Venetian Resort
+                </p>
+              </NeonText>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                Your quick link for the weekend plan. 🎲🎊
+              </p>
+              
+              <div className="flex justify-center mb-8">
+                <CelebrationButton onClick={copyItinerary}>
+                  <button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50">
+                    {copied ? '✓ Copied!' : '📋 Copy Itinerary'}
+                  </button>
+                </CelebrationButton>
               </div>
             </div>
-          )}
-        </div>
-      </section>
+          </section>
 
       {/* Key Details */}
       <section className="px-6 py-8 animate-slide-up relative z-10" aria-labelledby="key-details">
@@ -264,6 +240,8 @@ NOTES:
           </div>
         </div>
       </footer>
-    </main>
+        </main>
+      )}
+    </>
   )
 }
