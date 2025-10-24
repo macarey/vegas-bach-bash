@@ -28,11 +28,88 @@
     white-space: nowrap;
     border: 0;
   }
+
+  .neon-glow {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
+
+  .vegas-pulse {
+    animation: vegas-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .rainbow-border {
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-size: 400% 400%;
+    animation: rainbow-border 3s ease infinite;
+  }
+
+  .slot-machine-text {
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700, #ffed4e);
+    background-size: 400% 400%;
+    animation: slot-machine-text 2s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes vegas-pulse {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+  }
+}
+
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slot-machine-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.neon-flicker {
+  animation: neon-flicker 1.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
-  .animate-slide-up {
+  .animate-slide-up,
+  .vegas-pulse,
+  .rainbow-border,
+  .slot-machine-text,
+  .neon-flicker {
     animation: none;
   }
 }
